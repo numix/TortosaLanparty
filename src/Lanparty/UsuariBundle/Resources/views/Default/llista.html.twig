@@ -1,0 +1,47 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Llista{% endblock %}
+{% block id 'llista' %}
+
+{% block article %}
+<div class="container marketing">
+<div>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Nom</th>
+			<th>Cognoms</th>
+			<th>Email</th>
+			<th>Direcció</th>
+			<th>Dni</th>
+			<th>Ciutat</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+	{% for i in usuari %}
+		<tr>
+			<td>{{ i.id }}</td>
+	    	<td>{{ i.nom }}</td>
+	    	<td>{{ i.cognoms }}</td>	
+			<td>{{ i.email }}</td>
+			<td>{{ i.direccio }}</td>
+			<td>{{ i.dni }}</td>
+			<td>{{ i.ciutat }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}

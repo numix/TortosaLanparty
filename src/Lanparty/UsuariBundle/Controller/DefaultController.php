@@ -195,4 +195,19 @@ class DefaultController extends Controller
 	 		'formulari' => $formulari->createView()
 		));
 	}
+	public function llistausuariAction(){
+
+		$usuari = new Usuari();
+
+		$em = $this->getDoctrine()->getManager();
+		$usuari = $em	->getRepository('UsuariBundle:Usuari')
+						->findAll();
+
+		return $this->render('UsuariBundle:Default:llista.html.twig', array(
+	 		'usuari' => $usuari
+		));
+
+	}
+
+
 }

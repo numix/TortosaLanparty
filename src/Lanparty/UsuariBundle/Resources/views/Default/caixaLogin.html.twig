@@ -5,6 +5,7 @@
 	<li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user }} <b class="caret"></b></a>
       <ul class="dropdown-menu">
+        <li><a href="{{ path('usuari_llista') }}">{{ "Llista usuaris" }}</a></li>
         <li><a href="{{ path('usuari_torneig') }}">{{ "Tornejos" }}</a></li>
         <li class="divider"></li>
         <li><a href="{{ path('usuari_logout') }}">{{ "Tancar sessió" }}</a></li>
@@ -15,6 +16,8 @@
 
 
 {% else %}
+
+
 <form class="navbar-form navbar-right" role="search" action="{{ path('usuari_login_check') }}" method="post">
     <div class="form-group">
         <input id="login_user" type="text" class="form-control" name="_username" placeholder="Username" value="{{ last_username }}">

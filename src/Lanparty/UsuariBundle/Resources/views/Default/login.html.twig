@@ -1,28 +1,31 @@
-{% if is_granted('ROLE_USUARI') %} {# el usuario está logueado #}
-
-<p>Conectadoo como <strong>{{ app.user }}</strong></p>
-
-    <a href="#">{{ "Ver mi perfil" }}</a>
-    <a href="{{ path('usuari_logout') }}">{{ "Cerrar sesión" }}</a>
-
-{% else %} {# el usuario todavía no ha hecho login #}
-
-      <a class="boton" href="{{ path('usuari_registre') }}">{{ "Regístrate" }}</a>
+{% if is_granted('ROLE_USUARI') %} 
 
 
-<div id="login"> 
+  <ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user }} <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{{ path('usuari_llista') }}">{{ "Perfil" }}</a></li>
+        <li><a href="{{ path('usuari_torneig') }}">{{ "Tornejos" }}</a></li>
+        <li class="divider"></li>
+        <li><a href="{{ path('usuari_logout') }}">{{ "Tancar sessió" }}</a></li>
+   
+      </ul>
+    </li>
+</ul>
 
-<form action="{{ path('usuari_login_check') }}" method="post">
-  {% if error %}
-    <div>{{ error.message }}</div>
-  {% endif %}
-  <label for="login_user">Email</label>
-  <input id="login_user" type="text" name="_username" value="{{ last_username | default('') }}" />
-  
-  <label for="login_pass">Contrasenya</label>
-  <input id="login_pass" type="password" name="_password" />
-  
-  <input type="submit" value="Entrar" />
+
+{% else %}
+<form class="navbar-form navbar-right" role="search" action="{{ path('usuari_login_check') }}" method="post">
+    <div class="form-group">
+        <input id="login_user" type="text" class="form-control" name="_username" placeholder="Username" value="{{ last_username }}">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="_password" placeholder="Password" id="login_pass">
+    </div>
+    &nbsp;
+    <button type="submit" class="btn btn-default">Login</button>
+
+    &nbsp;<a href="{{ path('usuari_registre') }}">{{ "Registrat" }}</a>
 </form>
-</div>
 {% endif %}

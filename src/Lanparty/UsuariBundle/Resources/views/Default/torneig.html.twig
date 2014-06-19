@@ -4,17 +4,21 @@
 {% block id 'torneig' %}
 
 {% block article %}
+
+<div>
 	<br style="clear:both"/>
 	<br style="clear:both"/>
 	<br style="clear:both"/>
 	<br style="clear:both"/>
 	<br style="clear:both"/>
+</div>
 	{% for i in torneig %}
-	    <p><a href="{{path ('usuari_torneig_exacte', { 'slug': i.slug }) }}">{{ i.nom }}</a>
-
-	    <br>{{ i.descripcio }}</p> 
-	<hr>
-
+	<div class="col-lg-4">
+		<img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+		<h2>{{ i.nom }}</h2>
+		<p>{{ i.descripcio }}</p>
+		<p><a class="btn btn-default" href="{{path ('usuari_torneig_exacte', { 'slug': i.slug }) }}" role="button">Veure detalls &raquo;</a></p>
+	</div>
 	{% endfor %}
 
 
@@ -23,3 +27,5 @@
 {% block aside %}
 
 {% endblock %}
+
+

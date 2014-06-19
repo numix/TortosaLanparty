@@ -28,9 +28,14 @@ torneig_registre:
     path:    /torneig-{slug}
     defaults:  { _controller: UsuariBundle:Default:insertartorneig }
 
+usuari_llista:
+    path:    /llista
+    defaults:  { _controller: UsuariBundle:Default:llistausuari }
+
 UsuariBundle_torneig:
         resource: "@UsuariBundle/Resources/config/routing/torneig.yml"
         prefix:   /torneig
+
 #usuari_tornejos:
 #    path:     /login
 #    defaults: { _controller: UsuariBundle:Default:login }

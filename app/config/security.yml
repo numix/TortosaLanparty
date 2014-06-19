@@ -5,10 +5,10 @@ security:
             pattern:      ^/admin
             provider:     administradors
             form_login:   
-                login_path: usuari_login
-                check_path: usuari_login_check
+                login_path: /admin/usuari_login
+                check_path: /admin/usuari_login_check
             logout:
-                 path:    usuari_logout
+                 path:    /admin/usuari_logout
                  target:  /
 
         frontend:
@@ -30,7 +30,7 @@ security:
     access_control:
         - { path: ^/usuari/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/usuari/registre, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/usuari/*, roles: [ROLE_USUARI, ROLE_ADMIN] }
+        - { path: ^/usuari/*, roles: [IS_AUTHENTICATED_ANONYMOUSLY, ROLE_USUARI, ROLE_ADMIN] }
         - { path: ^/admin/*, roles: [ROLE_ADMIN] }
         #- { path: ^/extranet/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/extranet/*, roles: providers }
@@ -44,5 +44,6 @@ security:
                 users:
                     admin: { password: admin, roles: 'ROLE_ADMIN' }                            
     encoders:
+        #Lanparty\UsuariBundle\Entity\Usuari: { algorithm: sha512,
+        #                                       iterations: 10 }
         Lanparty\UsuariBundle\Entity\Usuari: plaintext
-        #Lanparty\BlogBundle\Entity\Torneig: plaintext
