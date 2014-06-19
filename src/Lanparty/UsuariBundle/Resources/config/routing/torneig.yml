@@ -1,0 +1,30 @@
+torneig:
+    pattern:  /
+    defaults: { _controller: "UsuariBundle:Torneig:index" }
+
+torneig_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "UsuariBundle:Torneig:show" }
+
+torneig_new:
+    pattern:  /new
+    defaults: { _controller: "UsuariBundle:Torneig:new" }
+
+torneig_create:
+    pattern:  /create
+    defaults: { _controller: "UsuariBundle:Torneig:create" }
+    requirements: { _method: post }
+
+torneig_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "UsuariBundle:Torneig:edit" }
+
+torneig_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "UsuariBundle:Torneig:update" }
+    requirements: { _method: post|put }
+
+torneig_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "UsuariBundle:Torneig:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,20 @@
+<?php
+
+namespace Lanparty\UsuariBundle\Entity;
+
+use Doctrine\ORM\EntityRepository;
+
+class TorneigRepository extends EntityRepository
+{
+    public function findTorneig()
+    {
+        $em = $this->getEntityManager();
+        
+        $consulta = $em->createQuery('
+            SELECT o
+            FROM UsuariBundle:Torneig o
+            ');
+
+        return $consulta->getResult();
+    }  
+}

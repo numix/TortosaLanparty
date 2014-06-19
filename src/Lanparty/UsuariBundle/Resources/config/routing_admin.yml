@@ -1,0 +1,17 @@
+# Ruta de la portada de la extranet
+admin_portada:
+    pattern:  /
+    defaults: { _controller: UsuariBundle:Default:admin }
+
+# Ruta para la acción de login de la extranet
+admin_login:
+    pattern:   /login
+    defaults:  { _controller: UsuariBundle:Default:login }
+
+# Ruta para la acción que comprueba el login de la extranet
+admin_login_check:
+    pattern:   /login_check
+
+# Ruta para la acción de logout de la extranet
+admin_logout:
+    pattern:   /logout

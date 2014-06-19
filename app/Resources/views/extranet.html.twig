@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/normalizar.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('css/comun.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('css/extranet.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+<header>
+	<h1><a href="{{ path('extranet_portada') }}">asdasd</a></h1>
+<nav>
+	<ul>
+		<li><a href="{{ path('extranet_portada') }}">Portada</a></li>
+		<li><a href="{{ path('extranet_perfil') }}">Perfil</a></li>
+		<li><a href="#">Tancar sesió</a></li>
+
+	</ul>
+</nav>
+
+<article>
+	{% block article %}{% endblock %}
+</article>
+<aside>
+	{% block aside } {% endblock}
+</aside>
+
+</header>
+{% endblock}

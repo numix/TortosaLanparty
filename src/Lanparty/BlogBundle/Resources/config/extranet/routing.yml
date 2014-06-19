@@ -1,0 +1,17 @@
+extranet_portada:
+    path:     /
+    defaults: { _controller: BlogBundle:Extranet:portada }
+
+extranet_perfil:
+    path:     /perfil
+    defaults: { _controller: BlogBundle:Extranet:perfil }
+
+extranet_login:
+    pattern:   /login
+    { _controller: BlogBundle:Extranet:login }
+
+extranet_login_check:
+    pattern:   /login_check
+
+extranet_logout:
+    pattern:   /logout

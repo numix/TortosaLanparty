@@ -1,0 +1,25 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Torneig{% endblock %}
+{% block id 'torneig' %}
+
+{% block article %}
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	{% for i in torneig %}
+	    <p><a href="{{path ('usuari_torneig_exacte', { 'slug': i.slug }) }}">{{ i.nom }}</a>
+
+	    <br>{{ i.descripcio }}</p> 
+	<hr>
+
+	{% endfor %}
+
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}

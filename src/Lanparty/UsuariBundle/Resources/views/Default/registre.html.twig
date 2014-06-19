@@ -1,0 +1,32 @@
+{% extends '::frontend.html.twig' %}
+{% block id 'usuari' %}
+{% block title %}Registrat com a usuari{% endblock %}
+{% block article %}
+
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+	<br style="clear:both"/>
+<form class="form-horizontal" role="form" action="{{ path('usuari_registre') }}" method="post" {{ form_enctype(formulari) }}>
+	{{ form_errors(formulari) }}
+	<div class="form-group">
+	{{ form_widget(formulari.nom, { 'attr': { 'class': 'form-control' } }) }}
+	{{ form_widget(formulari.cognoms, { 'attr': { 'class': 'form-control  col-xs-3' } }) }}
+	{{ form_widget(formulari.data_naixement, { 'attr': { 'class': '' } }) }}
+	{{ form_widget(formulari.direccio, { 'attr': { 'class': ''} }) }}
+	{{ form_widget(formulari.ciutat, { 'attr': { 'class': 'form-control' } }) }}
+	{{ form_widget(formulari.email, { 'attr': { 'class': 'form-control' } }) }}
+	{{ form_widget(formulari.password, { 'attr': { 'class': 'form-control' } }) }}
+		
+
+	
+
+
+		</div>
+	<input class="boton" type="submit" value="Registrarme" />
+</form>
+{% endblock %}
+{% block aside %}{% endblock %}

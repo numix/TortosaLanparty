@@ -1,0 +1,7 @@
+parameters:
+#    usuari.example.class: Lanparty\UsuariBundle\Example
+
+services:
+#    usuari.example:
+#        class: %usuari.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

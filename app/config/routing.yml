@@ -1,0 +1,19 @@
+usuari:
+    resource: "@UsuariBundle/Resources/config/routing.yml"
+    prefix:   /usuari
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+contacte:
+    path:     /lloc/{pagina}
+    defaults: { _controller: BlogBundle:Lloc:contacte }
+
+portada:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:portada }
+
+Admin:
+    resource: "@UsuariBundle/Resources/config/routing_admin.yml"
+    prefix:   /admin

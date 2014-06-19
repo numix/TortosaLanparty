@@ -1,0 +1,34 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Torneig 
+{% for i in torneig %}
+	
+	{{ i.nom }}
+
+{% endfor %}
+
+{% endblock %}
+{% block id 'torneig' %}
+
+{% block article %}
+{% for i in torneig %}
+	
+	<h1>Torneig {{ i.nom }}</h1>
+	<h3>{{ i.descripcio }}</h3>
+	<hr>
+
+<form action="{{ path('torneig_registre', { 'slug': i.slug }) }}" method="post" {{form_enctype(formulari) }}>
+
+	{{ form_widget(formulari) }}
+
+	<input class="boton" type="submit" value="Registrarme" />
+</form>
+
+
+{% endfor %}
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}

@@ -1,0 +1,48 @@
+security:
+
+    firewalls:
+        admin:
+            pattern:      ^/admin
+            provider:     administradors
+            form_login:   
+                login_path: usuari_login
+                check_path: usuari_login_check
+            logout:
+                 path:    usuari_logout
+                 target:  /
+
+        frontend:
+            pattern:      ^/*
+            provider:     usuaris
+            anonymous:    ~
+            form_login:   
+                login_path: usuari_login
+                check_path: usuari_login_check
+                #default_target_path: /usuari
+                #always_use_default_target_path: true
+            logout:
+                path:     usuari_logout
+                target:   /
+            #remember_me:
+            #    key:      lanparty1234
+             #   lifetime: 604800    # 7 * 24 * 3600 = 604.800 = 1 semana
+
+    access_control:
+        - { path: ^/usuari/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuari/registre, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuari/*, roles: [ROLE_USUARI, ROLE_ADMIN] }
+        - { path: ^/admin/*, roles: [ROLE_ADMIN] }
+        #- { path: ^/extranet/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/extranet/*, roles: providers }
+
+    providers:
+        usuaris:
+            entity: { class: Lanparty\UsuariBundle\Entity\Usuari, property: email }
+            #entity: { class: Lanparty\BlogBundle\Entity\Torneig, property: login}
+        administradors:
+             memory:
+                users:
+                    admin: { password: admin, roles: 'ROLE_ADMIN' }                            
+    encoders:
+        Lanparty\UsuariBundle\Entity\Usuari: plaintext
+        #Lanparty\BlogBundle\Entity\Torneig: plaintext

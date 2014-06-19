@@ -1,0 +1,16 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}Usuaris{% endblock %}
+{% block id 'usuari' %}
+
+{% block article %}
+
+
+
+{% endblock %}
+
+{% block aside %}
+    {% for item in usuari %}
+        {{ item.nom }}{{ item.cognoms }}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% if is_granted('ROLE_USUARI') %} {# el usuario está logueado #}
+
+<p>Conectadoo como <strong>{{ app.user }}</strong></p>
+
+    <a href="#">{{ "Ver mi perfil" }}</a>
+    <a href="{{ path('usuari_logout') }}">{{ "Cerrar sesión" }}</a>
+
+{% else %} {# el usuario todavía no ha hecho login #}
+
+      <a class="boton" href="{{ path('usuari_registre') }}">{{ "Regístrate" }}</a>
+
+
+<div id="login"> 
+
+<form action="{{ path('usuari_login_check') }}" method="post">
+  {% if error %}
+    <div>{{ error.message }}</div>
+  {% endif %}
+  <label for="login_user">Email</label>
+  <input id="login_user" type="text" name="_username" value="{{ last_username | default('') }}" />
+  
+  <label for="login_pass">Contrasenya</label>
+  <input id="login_pass" type="password" name="_password" />
+  
+  <input type="submit" value="Entrar" />
+</form>
+</div>
+{% endif %}
